@@ -52,6 +52,7 @@ window.addEventListener("scroll", function () {
 });
 
 window.addEventListener("resize", function() {
+    const mainTitle = document.querySelector("h1");
     // console.log("Nuevo ancho:", window.innerWidth);
     // console.log("Nuevo alto:", window.innerHeight);
     if (window.innerWidth < 800) {
