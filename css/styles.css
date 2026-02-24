@@ -1,0 +1,618 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+/* 
+Reset general 
+Con esto, se eliminan márgenes y paddings por defecto.
+box-sizing: border-box ->asegura que el ancho/alto de los elementos incluya el padding y el borde (más fácil de controlar).
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif; */
+  font-family: "Roboto", "Roboto Slab";
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+/* Franja superior de contacto */
+.top-bar {
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+  padding: 8px 0;
+  position: relative;
+}
+
+.top-bar .container {
+  width: 1140px;
+  margin: auto;
+  font-size: 15px;
+  font-weight: 300;
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-bar-button {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.top-bar-button:hover {
+  background-color: #e20e17;
+}
+
+/* Oculta la franja superior si la pantalla es menor a 1024px */
+@media screen and (max-width: 1024px) {
+  .top-bar {
+    display: none;
+  }
+}
+
+/* Header */
+header {
+  /*
+    Define que el color de fondo base es transparente.
+    Esto sirve como “fallback” si el navegador no soporta degradados, o simplemente para que el degradado sea lo que se vea.
+  */
+  background-color: transparent;
+  /* 
+    Aplica un degradado lineal como imagen de fondo.
+    100deg -> Indica la dirección del degradado.
+    100deg significa que el degradado se dibuja en un ángulo de 100 grados respecto al eje horizontal.
+    En otras palabras, no es estrictamente horizontal ni vertical, sino diagonal.
+  */
+  background-image: linear-gradient(100deg, #FFFFFFB3 25%, #E20E17 100%);
+  display: flex;
+  width: 1140px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all 300ms ease;
+}
+
+/* Ocupa el 100% del ancho */
+header.full-width {
+  width: 100%;
+  margin: 0;
+}
+
+.img-size {
+  width: 21%;
+}
+
+/* Logo cabecera */
+header h1 {
+  width: 25%;
+}
+
+.logo {
+  width: 85%;
+}
+
+/* Menú superior */
+header nav {
+  width: 60%;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: end;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav>ul>li {
+  padding: 0 10px;
+}
+
+nav ul li a{
+  color: #fff;
+}
+
+nav>ul>li>a{
+  padding: 8px 12px;
+}
+
+.top-nav>ul>li:hover>a {
+  background-color: #000000BA;
+  transition: all 300ms ease;
+}
+
+/* Background color para el elemento seleccionado */
+.header-contain>.top-nav>ul>li:first-child>a {
+  background-color: #E20E17;
+}
+
+/* Submenú */
+.header-contain>.top-nav ul li ul {
+  width: 320px;
+  display: flex;
+  top: 50px;
+  flex-direction: column;
+  background-color: #000000BA;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 300ms ease;
+}
+
+/* Muestra el submenú */
+.top-nav ul li:hover ul {
+  visibility: visible;
+  opacity: 1;
+  top: 26px;
+}
+
+nav ul li ul a {
+  display: block;
+  padding: 12px 14px 12px 20px;
+  transition: all 300ms ease;
+}
+
+.header-contain .top-nav ul li ul a:hover {
+  background-color: #E20E17;
+}
+
+/* Botón de descarga */
+header section {
+  width: 15%;
+}
+
+.button-brochure {
+  background-color: #00000059;
+  color: #FFF;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.button-brochure:hover {
+  background-color: #000000CC;
+}
+
+/*** Por defecto el menú lateral está oculto ***/
+.close-icon, .container-side-logo, 
+.side-menu>nav, .side-menu>section,
+#enable-menu-icon, .menu-icon,
+.side-menu>.dowload-button {
+  display: none;
+}
+
+#enable-menu-icon:checked ~ .side-menu {
+  /* opacity: 1;
+  visibility: visible; */
+  right: 0;
+}
+
+
+/*** Mapa ***/
+.location{
+  width: 100%;
+  margin-bottom: -10px;
+}
+
+
+
+/*** Footer ***/
+.footer-container {
+  width: 100%;
+  background-image: url(../images/servigenburden-fondo3v2.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  color: #FFF;
+  display: flex;
+  /* flex-wrap: wrap; */
+  /* gap: 5px; */
+  padding: 40px 0px 50px 0px;
+  font-size: 14px;
+  /* justify-content: space-around; */
+}
+
+.background-overlay {
+  background-color: #000000;
+  background-image: url(../images/cream-pixels.png);
+  opacity: 0.8;
+  /* transition: background 0.3s, border-radius 0.3s, opacity 0.3s; */
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 0;/* Para posicionarlo detrás del contenido del footer */
+}
+
+.footer-section {
+  max-width: 450px;
+}
+
+.footer-logo {
+  width: 33%;
+  position: relative;
+}
+
+.container-footer-logo {
+  width: 100%;
+  background-color: #000;
+  padding: 20px;
+  font-size: 13px;
+  font-weight: 300;
+  margin-top: -95px;
+  border-bottom: solid #E20E17 2px;
+}
+
+.container-footer-logo .logo {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.container-footer-logo .logo a {
+  display: flex;
+  width: 100%;
+}
+
+.container-footer-logo .logo a img {
+  width: 80%;
+}
+
+.footer-description p {
+  text-align: justify;
+}
+
+.box1 {
+  width: 100%;
+  position: relative;
+
+  /* border-style: solid;
+  border-width: 0px 0px 3px 0px;
+  border-color: #E20E17;
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  margin-top: -95px;
+  margin-bottom: 0px; */
+}
+
+.box h3 {
+  width: 100%;
+  padding-bottom: 20px;
+  border-bottom: solid #FFF 1px;
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.footer-mapa {
+  width: 35%;
+  position: relative;
+}
+
+.footer-logo .box,
+.footer-mapa .box, 
+.footer-contacto .box {
+    margin: 0px 20px 20px 20px;
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.columns-container {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 15px;
+}
+
+.column {
+  width: 50%;
+}
+
+.column a {
+  color: #FFF;
+}
+
+.bottom-separator {
+  margin-bottom: 15px;
+}
+
+.dowload-footer {
+
+  background-color: #bb2121;
+  color: #FFF;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.dowload-footer:hover {
+  background-color: #f00707;
+}
+
+
+.footer-contacto {
+  width: 31%;
+  position: relative;
+}
+
+.box p {
+  margin-top: 3px;
+}
+
+.footer-logo,
+.footer-mapa,
+.footer-contacto {
+
+  z-index: 1;
+}
+
+.footer-bottom {
+  background-color: #E20E17;
+  padding: 10px 0 35px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-bottom-container {
+  width: 85%;
+}
+
+.footer-bottom-container {
+  width: 85%;
+  text-align: center;
+  font-size: 13px;
+  color: #FFF;
+  font-weight: 200;
+}
+
+.footer-bottom-container p span {
+  font-weight: 400;
+}
+
+.footer-contact-icon {
+  box-sizing: border-box;
+  width: 65px;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 13px solid #FF0000;
+  border-radius: 50%;
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  background: #FFF;
+  z-index: 2;
+}
+
+.footer-contact-whatsapp {
+  box-sizing: border-box;
+  font-size: 13px;
+  font-weight: 300;
+  width: 220px;
+  background: #17960b;
+  color: #FFF;
+  padding: 8px 15px;
+  border-radius: 20px;
+  text-align: center;
+  position: fixed;
+  right: 20px;
+  bottom: 15px;
+  z-index: 2;
+}
+
+/*** Responsive ***/
+@media screen and (max-width: 1160px) {
+/* Franja superior de contacto */
+  .top-bar .container {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1160px) {
+  header {
+    width: 100%;
+    padding: 10px 5px;
+  }
+
+  /* Logo cabecera */
+  header h1 {
+    width: 23%;
+  }
+
+  /* Menú superior */
+  header nav {
+    width: 60%;
+  }
+
+  nav>ul>li {
+    padding: 0 8px;
+  }
+
+  nav>ul>li>a {
+    padding: 8px 8px;
+  }
+
+  /* Botón de descarga */
+  header section {
+    width: 17%;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  /* Ocultamos el menú de escritorio */
+  header nav, header section {
+    display: none;
+  }
+
+  /* Habilitamos el menú lateral */
+  .close-icon, .container-side-logo,
+  .side-menu>nav, .side-menu>.dowload-button {
+    display: flex;
+  }
+
+  header {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    padding: 20px 15px;
+  }
+
+  header h1 {
+    width: 45%;
+  }
+
+  .menu-icon{
+    width: 65%;
+    display: flex;
+    justify-content: end;
+  }
+
+  .menu-icon>label {
+    background-color: #00000091;
+    padding: 12px;
+  }
+
+  .menu-icon>label:hover {
+    background-color: #000;
+    cursor: pointer;
+  }
+
+  .side-menu {
+    position: fixed; /* mejor que absolute para que se pegue a la ventana */
+    width: 75%;
+    height: 100%;
+    top: 0;
+    right: -100%; /* -100% lo ocultamos fuera de la pantalla */
+    padding: 15px 20px;
+    background-color: #000000E0;
+    transition: right 0.5s ease; /* animación suave */
+    overflow-y: auto; /* No muestra el scroll, a no ser que hay muchos items en el menú*/
+    z-index: 9999; /* Por encima del contenido */
+    opacity: 1;
+    visibility: visible;
+
+  }
+
+  .close-icon {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+  }
+
+  .close-icon label {
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .container-side-logo {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 20px;
+  }
+
+  .container-side-logo>.logo{
+    width: 77%;
+  }
+
+  .side-menu>nav,
+  .dowload-button {
+    width: 90%;
+    margin: auto;
+  }
+
+  .side-menu ul {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .side-menu ul li {
+    padding: 0;
+    position: relative;
+  }
+
+  .side-menu ul li a {
+    display: block;
+    /* padding: 10px 0 10px 10px; */
+  }
+
+  .side-nav ul li:hover {
+    background-color: #E20E17;
+  }
+
+  .side-menu ul li ul {
+    max-height: 0;
+    overflow: hidden;
+    flex-direction: column;
+    transition: max-height 700ms ease;
+  }
+
+  .side-menu ul li:hover ul {
+    max-height: 500px;
+  }
+
+  .side-nav ul li ul li:hover {
+    background-color: #000000E0;
+  }
+
+  .dowload-button {
+    font-size: 12px;
+    padding: 12px 10px;
+  }
+
+.dowload-button a {
+    background-color: #bb2121;
+    color: #FFF;
+    padding: 10px 15px;
+    border-radius: 10px;
+  }
+
+  .dowload-button a:hover {
+    background-color: #f00707;
+  }
+
+  /*** Footer ***/
+
+  .footer-container {
+    flex-direction: column;
+  }
+
+  .footer-section {
+    width: 100%;
+    max-width: 670px;
+    margin: auto;
+  }
+
+  .container-footer-logo .logo a {
+    justify-content: center;
+  }
+
+  .container-footer-logo .logo a img {
+    width: 45%;
+  }
+
+  /*** Whatsapp ***/
+  .footer-contact-whatsapp {
+    font-size: 22px;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+
+  .footer-bottom-container {
+    width: 65%;
+  }
+
+  .footer-contact-whatsapp span {
+    display: none;
+  }
+}
